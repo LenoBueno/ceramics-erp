@@ -190,8 +190,8 @@ const columns: ColumnDef<Product>[] = [
   },
   {
     accessorKey: "status",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Status" />,
-    cell: ({ row }) => {
+    header: function({ column }) { return <DataTableColumnHeader column={column} title="Status" /> },
+    cell: function({ row }) {
       const status = row.getValue("status") as string
       return <StatusBadge status={status as any} />
     },
