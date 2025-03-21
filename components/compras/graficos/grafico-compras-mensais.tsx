@@ -12,12 +12,12 @@ import {
 } from "recharts"
 
 const data = [
-  { name: "Out", valor: 720000 },
-  { name: "Nov", valor: 680000 },
-  { name: "Dez", valor: 750000 },
-  { name: "Jan", valor: 820000 },
-  { name: "Fev", valor: 790000 },
-  { name: "Mar", valor: 876000 },
+  { name: "Out", valor: 720000, valorFormatado: "R$ 720.000" },
+  { name: "Nov", valor: 680000, valorFormatado: "R$ 680.000" },
+  { name: "Dez", valor: 750000, valorFormatado: "R$ 750.000" },
+  { name: "Jan", valor: 820000, valorFormatado: "R$ 820.000" },
+  { name: "Fev", valor: 790000, valorFormatado: "R$ 790.000" },
+  { name: "Mar", valor: 876000, valorFormatado: "R$ 876.000" },
 ]
 
 export function GraficoComprasMensais() {
@@ -37,7 +37,7 @@ export function GraficoComprasMensais() {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip
-            formatter={(value) => `R$ ${value.toLocaleString("pt-BR")}`}
+            formatter={(value, name, props) => [props.payload.valorFormatado, name]}
             contentStyle={{
               backgroundColor: "hsl(var(--card))",
               borderColor: "hsl(var(--border))",

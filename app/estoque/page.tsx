@@ -177,13 +177,13 @@ const columns: ColumnDef<Product>[] = [
   },
   {
     accessorKey: "location",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Localização" />,
-    cell: ({ row }) => <div>{row.getValue("location")}</div>,
+    header: function({ column }) { return <DataTableColumnHeader column={column} title="Localização" /> },
+    cell: function({ row }) { return <div>{row.getValue("location")}</div> },
   },
   {
     accessorKey: "price",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Preço" />,
-    cell: ({ row }) => {
+    header: function({ column }) { return <DataTableColumnHeader column={column} title="Preço" /> },
+    cell: function({ row }) {
       const price = row.getValue("price") as number
       return <div className="text-right">{formatCurrency(price)}</div>
     },

@@ -3,11 +3,11 @@
 import { Cell, Legend, Pie, PieChart as RechartsPieChart, ResponsiveContainer, Tooltip } from "recharts"
 
 const data = [
-  { name: "Minerais Brasil Ltda", valor: 320000 },
-  { name: "Química Industrial S.A.", valor: 180000 },
-  { name: "Embalagens Seguras Ltda", valor: 120000 },
-  { name: "Equipamentos Cerâmicos S.A.", valor: 240000 },
-  { name: "Outros", valor: 140000 },
+  { name: "Minerais Brasil Ltda", valor: 320000, valorFormatado: "R$ 320.000" },
+  { name: "Química Industrial S.A.", valor: 180000, valorFormatado: "R$ 180.000" },
+  { name: "Embalagens Seguras Ltda", valor: 120000, valorFormatado: "R$ 120.000" },
+  { name: "Equipamentos Cerâmicos S.A.", valor: 240000, valorFormatado: "R$ 240.000" },
+  { name: "Outros", valor: 140000, valorFormatado: "R$ 140.000" },
 ]
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#8884d8"]
@@ -33,7 +33,7 @@ export function GraficoComprasFornecedor() {
             ))}
           </Pie>
           <Tooltip
-            formatter={(value) => `R$ ${value.toLocaleString("pt-BR")}`}
+            formatter={(value, name, props) => [props.payload.valorFormatado, name]}
             contentStyle={{
               backgroundColor: "hsl(var(--card))",
               borderColor: "hsl(var(--border))",

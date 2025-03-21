@@ -3,11 +3,11 @@
 import { Cell, Legend, Pie, PieChart as RechartsPieChart, ResponsiveContainer, Tooltip } from "recharts"
 
 const data = [
-  { name: "Sudeste", valor: 245 },
-  { name: "Sul", valor: 98 },
-  { name: "Nordeste", valor: 65 },
-  { name: "Centro-Oeste", valor: 32 },
-  { name: "Norte", valor: 18 },
+  { name: "Sudeste", valor: 245, valorFormatado: "245 clientes" },
+  { name: "Sul", valor: 98, valorFormatado: "98 clientes" },
+  { name: "Nordeste", valor: 65, valorFormatado: "65 clientes" },
+  { name: "Centro-Oeste", valor: 32, valorFormatado: "32 clientes" },
+  { name: "Norte", valor: 18, valorFormatado: "18 clientes" },
 ]
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#8884d8"]
@@ -33,7 +33,7 @@ export function GraficoClientesRegiao() {
             ))}
           </Pie>
           <Tooltip
-            formatter={(value) => `${value} clientes`}
+            formatter={(value, name, props) => [props.payload.valorFormatado, name]}
             contentStyle={{
               backgroundColor: "hsl(var(--card))",
               borderColor: "hsl(var(--border))",

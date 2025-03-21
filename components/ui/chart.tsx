@@ -30,3 +30,20 @@ export const YAxis = RechartsYAxis
 export const Bar = RechartsBar
 export const BarChart = RechartsBarChart
 
+// Re-exportando para garantir compatibilidade
+export {
+  RechartsArea,
+  RechartsAreaChart,
+  RechartsBar,
+  RechartsBarChart,
+  RechartsCartesianGrid,
+  RechartsCell,
+  RechartsLegend,
+  RechartsPie,
+  RechartsPieChart,
+  RechartsResponsiveContainer,
+  RechartsTooltip,
+  RechartsXAxis,
+  RechartsYAxis,
+}
+

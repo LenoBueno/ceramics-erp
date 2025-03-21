@@ -45,14 +45,7 @@ export function GraficoVendasPeriodo() {
             fontSize={12}
             tickLine={false}
             axisLine={false}
-            tickFormatter={(valor) => {
-              return new Intl.NumberFormat("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0,
-              }).format(valor)
-            }}
+            tickFormatter={(valor) => `R$${valor / 1000}k`}
           />
           <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
           <Tooltip

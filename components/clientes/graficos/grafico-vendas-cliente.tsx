@@ -15,22 +15,27 @@ const data = [
   {
     name: "Construtora Horizonte",
     valor: 145890,
+    valorFormatado: "R$ 145.890"
   },
   {
     name: "Acabamentos Modernos",
     valor: 98450,
+    valorFormatado: "R$ 98.450"
   },
   {
     name: "Arquitetura Inovadora",
     valor: 78900,
+    valorFormatado: "R$ 78.900"
   },
   {
     name: "Reformas Express",
     valor: 56780,
+    valorFormatado: "R$ 56.780"
   },
   {
     name: "Decorações Elegantes",
     valor: 45750,
+    valorFormatado: "R$ 45.750"
   },
 ]
 
@@ -52,7 +57,7 @@ export function GraficoVendasCliente() {
           <XAxis type="number" />
           <YAxis dataKey="name" type="category" width={150} />
           <Tooltip
-            formatter={(value) => `R$ ${value.toLocaleString("pt-BR")}`}
+            formatter={(value, name, props) => [props.payload.valorFormatado, name]}
             contentStyle={{
               backgroundColor: "hsl(var(--card))",
               borderColor: "hsl(var(--border))",

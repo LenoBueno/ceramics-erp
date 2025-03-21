@@ -16,26 +16,36 @@ const data = [
     name: "Linha 1",
     eficiencia: 92,
     meta: 95,
+    eficienciaFormatada: "92%",
+    metaFormatada: "95%"
   },
   {
     name: "Linha 2",
     eficiencia: 88,
     meta: 90,
+    eficienciaFormatada: "88%",
+    metaFormatada: "90%"
   },
   {
     name: "Linha 3",
     eficiencia: 85,
     meta: 90,
+    eficienciaFormatada: "85%",
+    metaFormatada: "90%"
   },
   {
     name: "Linha 4",
     eficiencia: 90,
     meta: 90,
+    eficienciaFormatada: "90%",
+    metaFormatada: "90%"
   },
   {
     name: "Linha 5",
     eficiencia: 82,
     meta: 85,
+    eficienciaFormatada: "82%",
+    metaFormatada: "85%"
   },
 ]
 
@@ -56,7 +66,7 @@ export function GraficoEficiencia() {
           <XAxis dataKey="name" />
           <YAxis domain={[0, 100]} />
           <Tooltip
-            formatter={(value) => `${value}%`}
+            formatter={(value, name, props) => [name === "Eficiência Atual" ? props.payload.eficienciaFormatada : props.payload.metaFormatada, name]}
             contentStyle={{
               backgroundColor: "hsl(var(--card))",
               borderColor: "hsl(var(--border))",
