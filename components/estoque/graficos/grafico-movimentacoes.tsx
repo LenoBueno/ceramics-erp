@@ -66,7 +66,7 @@ export function GraficoMovimentacoes() {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip
-            formatter={(value) => `${value} unidades`}
+            formatter={function(value) { return `${value} unidades` }}
             contentStyle={{
               backgroundColor: "hsl(var(--card))",
               borderColor: "hsl(var(--border))",

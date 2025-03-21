@@ -56,7 +56,7 @@ export function GraficoEficiencia() {
           <XAxis dataKey="name" />
           <YAxis domain={[0, 100]} />
           <Tooltip
-            formatter={(value) => `${value}%`}
+            formatter={function(value) { return `${value}%` }}
             contentStyle={{
               backgroundColor: "hsl(var(--card))",
               borderColor: "hsl(var(--border))",

@@ -33,7 +33,7 @@ export function GraficoClientesRegiao() {
             ))}
           </Pie>
           <Tooltip
-            formatter={(value) => `${value} clientes`}
+            formatter={function(value) { return `${value} clientes` }}
             contentStyle={{
               backgroundColor: "hsl(var(--card))",
               borderColor: "hsl(var(--border))",
