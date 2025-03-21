@@ -1,3 +1,4 @@
+"use client"
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "@/components/ui/chart"
 
 const dados = [
@@ -10,6 +11,18 @@ const dados = [
 ]
 
 export function GraficoVendasPeriodo() {
+  // Pre-formatando os dados para exibir valores formatados
+  const dadosFormatados = dados.map(item => ({
+    ...item,
+    vendasFormatada: new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(item.vendas)
+  }))
+  
+  // Função para formatar o valor no tooltip e no eixo Y
   const formatarValor = (valor: number) => {
     return new Intl.NumberFormat("pt-BR", {
       style: "currency",
@@ -32,7 +45,13 @@ export function GraficoVendasPeriodo() {
             fontSize={12}
             tickLine={false}
             axisLine={false}
-            tickFormatter={formatarValor}
+            // Usando uma arrow function inline em vez de passar a função diretamente
+            tickFormatter={(valor) => new Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0,
+            }).format(valor)}
           />
           <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
           <Tooltip
@@ -50,4 +69,3 @@ export function GraficoVendasPeriodo() {
     </div>
   )
 }
-

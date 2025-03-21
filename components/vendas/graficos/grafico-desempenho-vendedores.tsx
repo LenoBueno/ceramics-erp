@@ -1,3 +1,4 @@
+import React from "react";
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "@/components/ui/chart"
 
 const dados = [
@@ -34,6 +35,24 @@ const dados = [
 ]
 
 export function GraficoDesempenhoVendedores() {
+  // Pre-format the tick values instead of passing the formatter function
+  const dadosFormatados = dados.map(item => ({
+    ...item,
+    vendasFormatada: new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(item.vendas),
+    comissaoFormatada: new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(item.comissao)
+  }))
+  
+  // Helper function for tooltip formatting - will be serialized for client component
   const formatarValor = (valor: number) => {
     return new Intl.NumberFormat("pt-BR", {
       style: "currency",
@@ -54,7 +73,7 @@ export function GraficoDesempenhoVendedores() {
             fontSize={12}
             tickLine={false}
             axisLine={false}
-            tickFormatter={formatarValor}
+            tickFormatter={(value) => `R$${value.toLocaleString('pt-BR')}`}
           />
           <Tooltip
             formatter={(value: number) => [formatarValor(value), ""]}

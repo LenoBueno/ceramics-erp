@@ -1,3 +1,6 @@
+"use client";
+
+import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import type { ResumoFinanceiro } from "@/types/financeiro"
@@ -167,7 +170,7 @@ export function DashboardFinanceiro() {
                 </div>
               </TabsContent>
             </Tabs>
-          </CardContent>
+          </CardHeader>
         </Card>
       </div>
     </div>
