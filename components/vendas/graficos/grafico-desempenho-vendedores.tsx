@@ -73,10 +73,10 @@ export function GraficoDesempenhoVendedores() {
             fontSize={12}
             tickLine={false}
             axisLine={false}
-            tickFormatter={function(value) { return `R$${value.toLocaleString('pt-BR')}` }}
+            tickFormatter={(value) => `R$${value.toLocaleString('pt-BR')}`}
           />
           <Tooltip
-            formatter={function(value: number) { return [formatarValor(value), ""] }}
+            formatter={(value: number) => [formatarValor(value), ""]}
             contentStyle={{
               backgroundColor: "hsl(var(--background))",
               borderColor: "hsl(var(--border))",

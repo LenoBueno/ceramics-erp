@@ -45,8 +45,7 @@ export function GraficoVendasPeriodo() {
             fontSize={12}
             tickLine={false}
             axisLine={false}
-            // Usando uma função nomeada em vez de uma arrow function
-            tickFormatter={function formatTickValue(valor) {
+            tickFormatter={(valor) => {
               return new Intl.NumberFormat("pt-BR", {
                 style: "currency",
                 currency: "BRL",
@@ -57,7 +56,7 @@ export function GraficoVendasPeriodo() {
           />
           <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
           <Tooltip
-            formatter={function(value: number) { return [formatarValor(value), "Vendas"] }}
+            formatter={(value: number) => [formatarValor(value), "Vendas"]}
             contentStyle={{
               backgroundColor: "hsl(var(--background))",
               borderColor: "hsl(var(--border))",

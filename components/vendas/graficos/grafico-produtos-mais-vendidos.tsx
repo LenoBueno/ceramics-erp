@@ -25,7 +25,7 @@ export function GraficoProdutosMaisVendidos() {
             width={90}
           />
           <Tooltip
-            formatter={function(value: number) { return [`${value} unidades`, "Quantidade"] }}
+            formatter={(value: number) => [`${value} unidades`, "Quantidade"]}
             contentStyle={{
               backgroundColor: "hsl(var(--background))",
               borderColor: "hsl(var(--border))",

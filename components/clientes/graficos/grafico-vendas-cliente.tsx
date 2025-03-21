@@ -52,7 +52,7 @@ export function GraficoVendasCliente() {
           <XAxis type="number" />
           <YAxis dataKey="name" type="category" width={150} />
           <Tooltip
-            formatter={function(value) { return `R$ ${value.toLocaleString("pt-BR")}` }}
+            formatter={(value) => `R$ ${value.toLocaleString("pt-BR")}`}
             contentStyle={{
               backgroundColor: "hsl(var(--card))",
               borderColor: "hsl(var(--border))",

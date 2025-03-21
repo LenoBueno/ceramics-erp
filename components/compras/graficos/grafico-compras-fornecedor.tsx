@@ -33,7 +33,7 @@ export function GraficoComprasFornecedor() {
             ))}
           </Pie>
           <Tooltip
-            formatter={function(value) { return `R$ ${value.toLocaleString("pt-BR")}` }}
+            formatter={(value) => `R$ ${value.toLocaleString("pt-BR")}`}
             contentStyle={{
               backgroundColor: "hsl(var(--card))",
               borderColor: "hsl(var(--border))",
