@@ -37,7 +37,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 import { toast } from "@/components/ui/use-toast"
-import { useRouter } from "next/navigation"
+import { useNavigate, useParams, useLocation } from "react-router-dom"
 
 type Product = {
   id: string
@@ -182,10 +182,12 @@ export function ProductList() {
   const [rowSelection, setRowSelection] = React.useState({})
   const [deleteDialogOpen, setDeleteDialogOpen] = React.useState(false)
   const [productToDelete, setProductToDelete] = React.useState<Product | null>(null)
-  const router = useRouter()
+  const navigate = useNavigate()
+  const params = useParams()
+  const location = useLocation()
 
   const navigateToProductDetail = (id: string) => {
-    router.push(`/produtos/${id}`)
+    navigate(`/produtos/${id}`)
   }
 
   const columns: ColumnDef<Product>[] = [

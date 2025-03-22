@@ -1,5 +1,5 @@
 import { Button, type ButtonProps } from "@/components/ui/button"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import type { ReactNode } from "react"
 
 interface PageHeaderProps {
@@ -35,7 +35,7 @@ export function PageHeaderAction({ href, icon, children, ...props }: PageHeaderA
   )
 
   if (href) {
-    return <Link href={href}>{ButtonComponent}</Link>
+    return <Link to={href}>{ButtonComponent}</Link>
   }
 
   return ButtonComponent

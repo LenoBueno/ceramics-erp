@@ -1,9 +1,10 @@
 "use client"
 
+import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
-import { useRouter } from "next/navigation"
+import { useNavigate, useParams, useLocation } from "react-router-dom"
 
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
@@ -44,7 +45,9 @@ const productFormSchema = z.object({
 type ProductFormValues = z.infer<typeof productFormSchema>
 
 export function ProductForm() {
-  const router = useRouter()
+  const navigate = useNavigate()
+  const params = useParams()
+  const location = useLocation()
 
   const defaultValues: Partial<ProductFormValues> = {
     name: "",
@@ -72,7 +75,7 @@ export function ProductForm() {
 
     // Redirecionar para a lista de produtos
     setTimeout(() => {
-      router.push("/produtos")
+      navigate("/produtos")
     }, 1500)
   }
 
@@ -247,7 +250,7 @@ export function ProductForm() {
             />
 
             <div className="flex justify-end gap-4">
-              <Button type="button" variant="outline" onClick={() => router.push("/produtos")}>
+              <Button type="button" variant="outline" onClick={() => navigate("/produtos")}>
                 Cancelar
               </Button>
               <Button type="submit">Salvar Produto</Button>

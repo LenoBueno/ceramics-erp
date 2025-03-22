@@ -16,7 +16,7 @@ import { Badge } from "@/components/ui/badge"
 import type { MovimentacaoCaixa, TipoMovimentacao } from "@/types/financeiro"
 import { formatCurrency } from "@/lib/utils"
 import { MoreHorizontal, Eye, Edit, Trash2, ArrowUpCircle, ArrowDownCircle, Search } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
 // Dados simulados para demonstração
 const movimentacoesData: MovimentacaoCaixa[] = [
@@ -190,13 +190,13 @@ export function FluxoCaixa() {
                         <DropdownMenuLabel>Ações</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
-                          <Link href={`/financeiro/fluxo-caixa/${mov.id}`} className="flex items-center">
+                          <Link to={`/financeiro/fluxo-caixa/${mov.id}`} className="flex items-center">
                             <Eye className="mr-2 h-4 w-4" />
                             <span>Visualizar</span>
                           </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
-                          <Link href={`/financeiro/fluxo-caixa/${mov.id}/editar`} className="flex items-center">
+                          <Link to={`/financeiro/fluxo-caixa/${mov.id}/editar`} className="flex items-center">
                             <Edit className="mr-2 h-4 w-4" />
                             <span>Editar</span>
                           </Link>

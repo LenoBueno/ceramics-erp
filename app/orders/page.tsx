@@ -6,7 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Search, Plus, Filter, ArrowUpDown, MoreHorizontal } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
 const orders = [
   {
@@ -82,7 +82,7 @@ export default function OrdersPage() {
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold tracking-tight">Orders</h1>
         <Button asChild>
-          <Link href="/orders/new">
+          <Link to="/orders/new">
             <Plus className="mr-2 h-4 w-4" /> New Order
           </Link>
         </Button>

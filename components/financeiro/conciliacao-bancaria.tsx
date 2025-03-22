@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
@@ -17,7 +15,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import type { TransacaoBancaria, TipoMovimentacao } from "@/types/financeiro"
 import { formatCurrency } from "@/lib/utils"
 import { MoreHorizontal, ArrowUpCircle, ArrowDownCircle, Search, CheckCircle, LinkIcon } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
 // Dados simulados para demonstração
 const transacoesData: TransacaoBancaria[] = [
@@ -229,7 +227,7 @@ export function ConciliacaoBancaria() {
                         <DropdownMenuSeparator />
                         {tr.conciliado ? (
                           <DropdownMenuItem>
-                            <Link href={`/financeiro/fluxo-caixa/${tr.movimentacaoId}`} className="flex items-center">
+                            <Link to={`/financeiro/fluxo-caixa/${tr.movimentacaoId}`} className="flex items-center">
                               <LinkIcon className="mr-2 h-4 w-4" />
                               <span>Ver Movimentação</span>
                             </Link>
@@ -241,7 +239,7 @@ export function ConciliacaoBancaria() {
                               <span>Conciliar</span>
                             </DropdownMenuItem>
                             <DropdownMenuItem>
-                              <Link href="/financeiro/fluxo-caixa/novo" className="flex items-center">
+                              <Link to="/financeiro/fluxo-caixa/novo" className="flex items-center">
                                 <LinkIcon className="mr-2 h-4 w-4" />
                                 <span>Criar Movimentação</span>
                               </Link>

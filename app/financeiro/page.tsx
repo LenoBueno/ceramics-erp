@@ -7,7 +7,7 @@ import { ContasPagar } from "@/components/financeiro/contas-pagar"
 import { FluxoCaixa } from "@/components/financeiro/fluxo-caixa"
 import { DashboardFinanceiro } from "@/components/financeiro/dashboard-financeiro"
 import { ConciliacaoBancaria } from "@/components/financeiro/conciliacao-bancaria"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
 export default function FinanceiroPage() {
   return (
@@ -47,7 +47,7 @@ export default function FinanceiroPage() {
         <TabsContent value="contas-receber" className="space-y-4 pt-4">
           <div className="flex justify-between mb-4">
             <h2 className="text-xl font-semibold">Contas a Receber</h2>
-            <Link href="/financeiro/contas-receber/novo">
+            <Link to="/financeiro/contas-receber/novo">
               <Button>
                 <Plus className="mr-2 h-4 w-4" />
                 Novo Recebimento
@@ -60,7 +60,7 @@ export default function FinanceiroPage() {
         <TabsContent value="contas-pagar" className="space-y-4 pt-4">
           <div className="flex justify-between mb-4">
             <h2 className="text-xl font-semibold">Contas a Pagar</h2>
-            <Link href="/financeiro/contas-pagar/novo">
+            <Link to="/financeiro/contas-pagar/novo">
               <Button>
                 <Plus className="mr-2 h-4 w-4" />
                 Novo Pagamento
@@ -73,7 +73,7 @@ export default function FinanceiroPage() {
         <TabsContent value="fluxo-caixa" className="space-y-4 pt-4">
           <div className="flex justify-between mb-4">
             <h2 className="text-xl font-semibold">Fluxo de Caixa</h2>
-            <Link href="/financeiro/fluxo-caixa/novo">
+            <Link to="/financeiro/fluxo-caixa/novo">
               <Button>
                 <Plus className="mr-2 h-4 w-4" />
                 Nova Movimentação

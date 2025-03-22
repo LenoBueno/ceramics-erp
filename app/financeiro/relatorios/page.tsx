@@ -4,7 +4,7 @@ import { CalendarDateRangePicker } from "@/components/date-range-picker"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { ArrowLeft, Download, FileText, BarChart3, TrendingUp, Filter } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { GraficoReceitasDespesas } from "@/components/financeiro/graficos/grafico-receitas-despesas"
 import { GraficoFluxoCaixa } from "@/components/financeiro/graficos/grafico-fluxo-caixa"
 import { formatCurrency } from "@/lib/utils"
@@ -25,7 +25,7 @@ export default function RelatoriosFinanceirosPage() {
     <div className="flex flex-col gap-5 p-8">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href="/financeiro">
+          <Link to="/financeiro">
             <Button variant="outline" size="icon">
               <ArrowLeft className="h-4 w-4" />
             </Button>

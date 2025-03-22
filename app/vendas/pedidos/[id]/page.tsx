@@ -17,7 +17,7 @@ import {
   Package,
   Send,
 } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { encontrarPedidoPorId } from "@/data/vendas-data"
 import { formatarData, formatarMoeda } from "@/lib/utils"
 import { notFound } from "next/navigation"
@@ -40,7 +40,7 @@ export default function DetalhesPedidoPage({ params }: { params: { id: string } 
     <div className="flex flex-col gap-5">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href="/vendas/pedidos">
+          <Link to="/vendas/pedidos">
             <Button variant="outline" size="icon">
               <ArrowLeft className="h-4 w-4" />
             </Button>

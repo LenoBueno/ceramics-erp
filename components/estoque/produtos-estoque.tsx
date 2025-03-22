@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { ArrowUpDown, ChevronDown, MoreHorizontal, PackagePlus, Search } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -100,7 +100,7 @@ export function ProdutosEstoque() {
             <CardTitle>Produtos em Estoque</CardTitle>
             <CardDescription>Gerencie todos os produtos disponíveis no estoque</CardDescription>
           </div>
-          <Link href="/estoque/produtos/novo">
+          <Link to="/estoque/produtos/novo">
             <Button>
               <PackagePlus className="mr-2 h-4 w-4" />
               Novo Produto

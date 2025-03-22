@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Search, Plus, ArrowUpDown, FileText, Download, Eye, MoreHorizontal, RefreshCw } from "lucide-react"
 import { DateRangePicker } from "@/components/ui/date-range-picker"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import type { InvoiceData } from "@/types/invoice"
 import { getInvoiceStatusConfig } from "@/lib/invoice-helpers"
 
@@ -30,13 +30,13 @@ function PageHeader() {
       <h1 className="text-3xl font-bold tracking-tight">Notas Fiscais</h1>
       <div className="flex gap-2">
         <Button variant="outline" asChild>
-          <Link href="/finance/invoices/import">
+          <Link to="/finance/invoices/import">
             <Download className="mr-2 h-4 w-4" />
             Importar XML
           </Link>
         </Button>
         <Button asChild>
-          <Link href="/finance/invoices/new">
+          <Link to="/finance/invoices/new">
             <Plus className="mr-2 h-4 w-4" />
             Emitir Nota Fiscal
           </Link>

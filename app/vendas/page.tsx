@@ -9,7 +9,7 @@ import { UltimasVendas } from "@/components/vendas/ultimas-vendas"
 import { MetasVendas } from "@/components/vendas/metas-vendas"
 import { Button } from "@/components/ui/button"
 import { PlusCircle, FileText, BarChart3 } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { VendasStats } from "@/components/vendas/vendas-stats"
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function VendasPage() {
         <h1 className="text-3xl font-bold tracking-tight">Vendas</h1>
         <div className="flex items-center gap-2">
           <CalendarDateRangePicker />
-          <Link href="/vendas/novo">
+          <Link to="/vendas/novo">
             <Button>
               <PlusCircle className="mr-2 h-4 w-4" />
               Nova Venda

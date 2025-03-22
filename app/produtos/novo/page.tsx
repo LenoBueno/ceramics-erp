@@ -3,13 +3,13 @@ import { DashboardHeader } from "@/components/dashboard-header"
 import { ProductForm } from "@/components/product-form"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
 export default function NewProductPage() {
   return (
     <DashboardShell>
       <DashboardHeader heading="Novo Produto" text="Adicione um novo produto ao catálogo da 2103 Creative.">
-        <Link href="/produtos">
+        <Link to="/produtos">
           <Button variant="outline">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Voltar

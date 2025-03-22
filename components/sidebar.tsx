@@ -1,5 +1,3 @@
-"use client"
-
 import type React from "react"
 
 import { cn } from "@/lib/utils"
@@ -20,15 +18,15 @@ import {
   Users,
   ChevronLeft,
 } from "lucide-react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { Link, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function Sidebar({ className }: SidebarProps) {
   const { isOpen, toggleSidebar } = useSidebar()
-  const pathname = usePathname()
+  const location = useLocation()
+  const pathname = location.pathname
   const [isMobile, setIsMobile] = useState(false)
 
   // Detectar se estamos em um dispositivo móvel
@@ -175,7 +173,7 @@ interface NavItemProps {
 
 function NavItem({ href, icon, label, isActive, collapsed }: NavItemProps) {
   return (
-    <Link href={href} passHref>
+    <Link to={href}>
       <Button
         variant={isActive ? "secondary" : "ghost"}
         className={cn("w-full justify-start", collapsed && "md:justify-center md:px-2")}

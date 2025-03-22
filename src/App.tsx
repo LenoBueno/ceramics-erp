@@ -2,17 +2,26 @@ import './styles/fonts.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { SidebarProvider } from '@/components/sidebar-provider'
 import { Toaster } from '@/components/ui/toaster'
-import Dashboard from './pages/Dashboard'
+import { BrowserRouter as Router, Routes, Route, useRoutes } from 'react-router-dom'
+import { routes } from './routes'
+
+// Componente para renderizar as rotas
+function AppRoutes() {
+  const element = useRoutes(routes);
+  return element;
+}
 
 function App() {
   return (
     <div>
-      <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-        <SidebarProvider>
-          <Dashboard />
-          <Toaster />
-        </SidebarProvider>
-      </ThemeProvider>
+      <Router>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          <SidebarProvider>
+            <AppRoutes />
+            <Toaster />
+          </SidebarProvider>
+        </ThemeProvider>
+      </Router>
     </div>
   )
 }

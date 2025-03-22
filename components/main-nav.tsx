@@ -1,7 +1,4 @@
-"use client"
-
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { Link, useLocation } from "react-router-dom"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -10,7 +7,8 @@ import { useSidebar } from "./sidebar-provider"
 import { useEffect, useState } from "react"
 
 export function MainNav() {
-  const pathname = usePathname()
+  const location = useLocation()
+  const pathname = location.pathname
   const { isOpen, toggleSidebar } = useSidebar()
   const [isMobile, setIsMobile] = useState(false)
 
@@ -38,12 +36,12 @@ export function MainNav() {
         )}
         <span className="sr-only">Toggle sidebar</span>
       </Button>
-      <Link href="/" className="mr-6 flex items-center space-x-2">
+      <Link to="/" className="mr-6 flex items-center space-x-2">
         <span className="hidden font-bold sm:inline-block">2103 Creative ERP</span>
       </Link>
       <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
         <Link
-          href="/"
+          to="/"
           className={cn(
             "transition-colors hover:text-primary",
             pathname === "/" ? "text-primary" : "text-muted-foreground",
@@ -52,7 +50,7 @@ export function MainNav() {
           Início
         </Link>
         <Link
-          href="/produtos"
+          to="/produtos"
           className={cn(
             "transition-colors hover:text-primary",
             pathname === "/produtos" || pathname.startsWith("/produtos/") ? "text-primary" : "text-muted-foreground",
@@ -61,7 +59,7 @@ export function MainNav() {
           Produtos
         </Link>
         <Link
-          href="/vendas"
+          to="/vendas"
           className={cn(
             "transition-colors hover:text-primary",
             pathname === "/vendas" ? "text-primary" : "text-muted-foreground",

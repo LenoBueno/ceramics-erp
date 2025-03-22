@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { formatarData, formatarMoeda } from "@/lib/utils"
 import { Eye } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
 const ultimasVendas = [
   {

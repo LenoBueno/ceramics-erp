@@ -281,9 +281,20 @@ export default function SettingsPage() {
                       </tr>
                       <tr className="border-b">
                         <td className="p-4 align-middle font-medium">Maria Silva</td>
-                        <td className="\
-
-\
+                        <td className="p-4 align-middle">maria.silva@2103creative.com.br</td>
+                        <td className="p-4 align-middle">Gerente</td>
+                        <td className="p-4 align-middle">
+                          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
+                            Ativo
+                          </span>
+                        </td>
+                        <td className="p-4 align-middle text-right">
+                          <Button variant="ghost" size="sm">Editar</Button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
 \
 

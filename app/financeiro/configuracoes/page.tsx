@@ -3,14 +3,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Switch } from "@/components/ui/switch"
 import { ArrowLeft, Save, Plus, Trash2 } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
 export default function ConfiguracoesFinanceirasPage() {
   return (
     <div className="flex flex-col gap-5 p-8">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href="/financeiro">
+          <Link to="/financeiro">
             <Button variant="outline" size="icon">
               <ArrowLeft className="h-4 w-4" />
             </Button>

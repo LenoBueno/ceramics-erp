@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { ArrowUpDown, ChevronDown, MoreHorizontal, Plus, Search } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -97,7 +97,7 @@ export function OrdensProducao() {
             <CardTitle>Ordens de Produção</CardTitle>
             <CardDescription>Gerencie todas as ordens de produção da sua indústria</CardDescription>
           </div>
-          <Link href="/producao/nova-ordem">
+          <Link to="/producao/nova-ordem">
             <Button>
               <Plus className="mr-2 h-4 w-4" />
               Nova Ordem
@@ -186,7 +186,7 @@ export function OrdensProducao() {
                         <DropdownMenuLabel>Ações</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
-                          <Link href={`/producao/ordens/${ordem.id}`}>Ver detalhes</Link>
+                          <Link to={`/producao/ordens/${ordem.id}`}>Ver detalhes</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>Editar ordem</DropdownMenuItem>
                         <DropdownMenuItem>Atualizar status</DropdownMenuItem>

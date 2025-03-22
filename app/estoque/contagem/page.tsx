@@ -12,8 +12,8 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { ArrowLeft, Check, Plus, Trash2 } from "lucide-react"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { Link } from "react-router-dom"
+import { useNavigate, useParams, useLocation } from "react-router-dom"
 import { toast } from "@/components/ui/use-toast"
 
 // Tipo para item de contagem
@@ -29,7 +29,9 @@ interface CountItem {
 }
 
 export default function InventoryCountPage() {
-  const router = useRouter()
+  const navigate = useNavigate()
+  const params = useParams()
+  const location = useLocation()
   const [items, setItems] = useState<CountItem[]>([
     {
       id: "1",
@@ -114,7 +116,7 @@ export default function InventoryCountPage() {
     
     // Redirecionar para a lista de produtos em estoque
     setTimeout(() => {
-      router.push("/estoque")
+      navigate("/estoque")
     }, 1500)
   }
   
@@ -259,7 +261,7 @@ export default function InventoryCountPage() {
               </CardContent>
               <CardFooter className="flex justify-between">
                 <Button type="button" variant="outline" asChild>
-                  <Link href="/estoque">Cancelar</Link>
+                  <Link to="/estoque">Cancelar</Link>
                 </Button>
                 <Button type="submit">
                   <Check className="h-4 w-4 mr-2" />

@@ -6,7 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Search, Plus, Filter, Layers, TrendingUp, Calendar, AlertCircle, BarChart3 } from "lucide-react"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
 // Mock data for production orders
 const productionOrders = [
@@ -87,13 +87,13 @@ export default function ManufacturingPage() {
         <h1 className="text-3xl font-bold tracking-tight">Manufacturing</h1>
         <div className="flex gap-2">
           <Button variant="outline" asChild>
-            <Link href="/manufacturing/schedule">
+            <Link to="/manufacturing/schedule">
               <Calendar className="mr-2 h-4 w-4" />
               Production Schedule
             </Link>
           </Button>
           <Button asChild>
-            <Link href="/manufacturing/new-order">
+            <Link to="/manufacturing/new-order">
               <Plus className="mr-2 h-4 w-4" />
               New Production Order
             </Link>
@@ -193,7 +193,7 @@ export default function ManufacturingPage() {
                       <TableRow key={order.id}>
                         <TableCell className="font-medium">{order.id}</TableCell>
                         <TableCell>
-                          <Link href={`/manufacturing/${order.id}`} className="hover:underline">
+                          <Link to={`/manufacturing/${order.id}`} className="hover:underline">
                             {order.name}
                           </Link>
                         </TableCell>

@@ -31,7 +31,9 @@ interface PurchaseItem {
 export default function NewPurchasePage() {
   const searchParams = useSearchParams()
   const supplierId = searchParams.get("fornecedor")
-  const router = useRouter()
+  const navigate = useNavigate()
+  const params = useParams()
+  const location = useLocation()
 
   const [activeTab, setActiveTab] = useState("supplier")
   const [supplier, setSupplier] = useState(
@@ -123,7 +125,7 @@ export default function NewPurchasePage() {
 
     // Redirecionar para a lista de compras
     setTimeout(() => {
-      router.push("/compras")
+      navigate("/compras")
     }, 1500)
   }
 

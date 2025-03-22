@@ -14,15 +14,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Plus, X } from "lucide-react"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { Link } from "react-router-dom"
+import { useNavigate, useParams, useLocation } from "react-router-dom"
 import { toast } from "@/components/ui/use-toast"
 
 export default function NewSupplierPage() {
   const [activeTab, setActiveTab] = useState("basic")
   const [categories, setCategories] = useState<string[]>([])
   const [newCategory, setNewCategory] = useState("")
-  const router = useRouter()
+  const navigate = useNavigate()
+  const params = useParams()
+  const location = useLocation()
 
   const handleAddCategory = () => {
     if (newCategory && !categories.includes(newCategory)) {
@@ -45,7 +47,7 @@ export default function NewSupplierPage() {
 
     // Redirecionar para a lista de fornecedores
     setTimeout(() => {
-      router.push("/fornecedores")
+      navigate("/fornecedores")
     }, 1500)
   }
 
@@ -258,7 +260,7 @@ export default function NewSupplierPage() {
 
             <div className="flex justify-end gap-4 mt-4">
               <Button type="button" variant="outline" asChild>
-                <Link href="/fornecedores">Cancelar</Link>
+                <Link to="/fornecedores">Cancelar</Link>
               </Button>
               <Button type="submit">Salvar Fornecedor</Button>
             </div>

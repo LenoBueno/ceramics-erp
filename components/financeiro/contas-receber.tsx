@@ -24,7 +24,7 @@ import { Badge } from "@/components/ui/badge"
 import type { ContaReceber, StatusFinanceiro } from "@/types/financeiro"
 import { formatCurrency } from "@/lib/utils"
 import { MoreHorizontal, Eye, Edit, Trash2, CheckCircle, FileText, Search } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
 // Dados simulados para demonstração
 const contasReceberData: ContaReceber[] = [
@@ -191,13 +191,13 @@ export function ContasReceber() {
                         <DropdownMenuLabel>Ações</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
-                          <Link href={`/financeiro/contas-receber/${conta.id}`} className="flex items-center">
+                          <Link to={`/financeiro/contas-receber/${conta.id}`} className="flex items-center">
                             <Eye className="mr-2 h-4 w-4" />
                             <span>Visualizar</span>
                           </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
-                          <Link href={`/financeiro/contas-receber/${conta.id}/editar`} className="flex items-center">
+                          <Link to={`/financeiro/contas-receber/${conta.id}/editar`} className="flex items-center">
                             <Edit className="mr-2 h-4 w-4" />
                             <span>Editar</span>
                           </Link>

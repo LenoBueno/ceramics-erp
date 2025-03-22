@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useCallback, useMemo } from "react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -141,7 +141,7 @@ function PageHeader({
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-2">
         <Button variant="outline" size="icon" asChild>
-          <Link href="/finance/invoices">
+          <Link to="/finance/invoices">
             <ChevronLeft className="h-4 w-4" />
           </Link>
         </Button>
@@ -552,7 +552,7 @@ function AdditionalInfoTab({ onSubmit }: { onSubmit: () => void }) {
       </CardContent>
       <CardFooter className="flex justify-between">
         <Button variant="outline" asChild>
-          <Link href="/finance/invoices">Cancelar</Link>
+          <Link to="/finance/invoices">Cancelar</Link>
         </Button>
         <Button onClick={onSubmit}>
           <Send className="mr-2 h-4 w-4" />

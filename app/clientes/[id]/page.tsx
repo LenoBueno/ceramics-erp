@@ -7,7 +7,7 @@ import { StatusBadge } from "@/components/status-badge"
 import type { Customer } from "@/types/customer"
 import { formatCurrency, formatDate } from "@/lib/utils"
 import { ArrowLeft, FileEdit, FileText, Mail, MapPin, Phone, User } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { notFound } from "next/navigation"
 import { Separator } from "@/components/ui/separator"
 

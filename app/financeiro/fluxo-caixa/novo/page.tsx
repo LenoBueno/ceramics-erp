@@ -6,14 +6,14 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { ArrowLeft, Save } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
 export default function NovaMovimentacaoPage() {
   return (
     <div className="flex flex-col gap-5 p-8">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href="/financeiro">
+          <Link to="/financeiro">
             <Button variant="outline" size="icon">
               <ArrowLeft className="h-4 w-4" />
             </Button>

@@ -13,13 +13,15 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { ArrowLeft } from "lucide-react"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { Link } from "react-router-dom"
+import { useNavigate, useParams, useLocation } from "react-router-dom"
 import { toast } from "@/components/ui/use-toast"
 
 export default function NewCustomerPage() {
   const [activeTab, setActiveTab] = useState("basic")
-  const router = useRouter()
+  const navigate = useNavigate()
+  const params = useParams()
+  const location = useLocation()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -31,7 +33,7 @@ export default function NewCustomerPage() {
 
     // Redirecionar para a lista de clientes
     setTimeout(() => {
-      router.push("/clientes")
+      navigate("/clientes")
     }, 1500)
   }
 
@@ -204,7 +206,7 @@ export default function NewCustomerPage() {
 
             <div className="flex justify-end gap-4 mt-4">
               <Button type="button" variant="outline" asChild>
-                <Link href="/clientes">Cancelar</Link>
+                <Link to="/clientes">Cancelar</Link>
               </Button>
               <Button type="submit">Salvar Cliente</Button>
             </div>

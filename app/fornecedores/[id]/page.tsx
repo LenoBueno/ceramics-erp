@@ -7,7 +7,7 @@ import { StatusBadge } from "@/components/status-badge"
 import type { Supplier } from "@/types/supplier"
 import { formatCurrency, formatDate } from "@/lib/utils"
 import { ArrowLeft, Building, FileEdit, Mail, MapPin, Phone, Star, Truck } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { notFound } from "next/navigation"
 import { Badge } from "@/components/ui/badge"
 

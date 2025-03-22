@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { ArrowUpDown, ChevronDown, MoreHorizontal, Plus, Search } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -97,7 +97,7 @@ export function PedidosCompra() {
             <CardTitle>Pedidos de Compra</CardTitle>
             <CardDescription>Gerencie todos os pedidos de compra da sua empresa</CardDescription>
           </div>
-          <Link href="/compras/novo-pedido">
+          <Link to="/compras/novo-pedido">
             <Button>
               <Plus className="mr-2 h-4 w-4" />
               Novo Pedido
@@ -191,7 +191,7 @@ export function PedidosCompra() {
                         <DropdownMenuLabel>Ações</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
-                          <Link href={`/compras/pedidos/${pedido.id}`}>Ver detalhes</Link>
+                          <Link to={`/compras/pedidos/${pedido.id}`}>Ver detalhes</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>Editar pedido</DropdownMenuItem>
                         <DropdownMenuItem>Atualizar status</DropdownMenuItem>

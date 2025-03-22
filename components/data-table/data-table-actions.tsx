@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { MoreHorizontal } from "lucide-react"
 import type { ReactNode } from "react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
 interface ActionItem {
   label: string

@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator"
 import { ArrowLeft, Plus, Trash2, Save, CreditCard, Package } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { FormularioItensVenda } from "@/components/vendas/formulario-itens-venda"
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function NovaVendaPage() {
     <div className="flex flex-col gap-5">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href="/vendas">
+          <Link to="/vendas">
             <Button variant="outline" size="icon">
               <ArrowLeft className="h-4 w-4" />
             </Button>

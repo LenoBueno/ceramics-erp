@@ -1,8 +1,7 @@
-"use client"
-
 import type { ReactNode } from "react"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { cn } from "@/lib/utils"
+import { Link } from "react-router-dom"
 
 interface EmptyStateProps {
   title: string
@@ -23,7 +22,7 @@ export function EmptyState({ title, description, icon, actionLabel, actionHref, 
         <div className="mt-6">
           {actionHref ? (
             <Button asChild>
-              <Link href={actionHref}>{actionLabel}</Link>
+              <Link to={actionHref}>{actionLabel}</Link>
             </Button>
           ) : (
             <Button onClick={actionOnClick}>{actionLabel}</Button>

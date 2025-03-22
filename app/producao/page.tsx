@@ -1,5 +1,4 @@
-import type { Metadata } from "next"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { ArrowRight, Box, Clock, FileCheck, LineChart, Plus, Settings } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -10,10 +9,7 @@ import { OrdensProducao } from "@/components/producao/ordens-producao"
 import { GraficoEficiencia } from "@/components/producao/graficos/grafico-eficiencia"
 import { GraficoProducaoDiaria } from "@/components/producao/graficos/grafico-producao-diaria"
 
-export const metadata: Metadata = {
-  title: "Produção | ERP Cerâmicas",
-  description: "Gestão de produção para indústrias de cerâmicas",
-}
+// Metadados removidos pois não são necessários no Vite
 
 export default function ProducaoPage() {
   return (
@@ -24,13 +20,13 @@ export default function ProducaoPage() {
           <p className="text-muted-foreground">Gerencie ordens de produção, processos e controle de qualidade</p>
         </div>
         <div className="flex items-center gap-2">
-          <Link href="/producao/nova-ordem">
+          <Link to="/producao/nova-ordem">
             <Button>
               <Plus className="mr-2 h-4 w-4" />
               Nova Ordem
             </Button>
           </Link>
-          <Link href="/producao/configuracoes">
+          <Link to="/producao/configuracoes">
             <Button variant="outline" size="icon">
               <Settings className="h-4 w-4" />
             </Button>
@@ -59,7 +55,7 @@ export default function ProducaoPage() {
                 <p className="text-xs text-muted-foreground">Ordens aguardando início</p>
               </CardContent>
               <CardFooter>
-                <Link href="/producao/ordens?status=preparacao" className="w-full">
+                <Link to="/producao/ordens?status=preparacao" className="w-full">
                   <Button variant="outline" className="w-full">
                     Ver ordens
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -77,7 +73,7 @@ export default function ProducaoPage() {
                 <p className="text-xs text-muted-foreground">Ordens em andamento</p>
               </CardContent>
               <CardFooter>
-                <Link href="/producao/ordens?status=producao" className="w-full">
+                <Link to="/producao/ordens?status=producao" className="w-full">
                   <Button variant="outline" className="w-full">
                     Ver ordens
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -95,7 +91,7 @@ export default function ProducaoPage() {
                 <p className="text-xs text-muted-foreground">Ordens em inspeção</p>
               </CardContent>
               <CardFooter>
-                <Link href="/producao/ordens?status=qualidade" className="w-full">
+                <Link to="/producao/ordens?status=qualidade" className="w-full">
                   <Button variant="outline" className="w-full">
                     Ver ordens
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -113,7 +109,7 @@ export default function ProducaoPage() {
                 <p className="text-xs text-muted-foreground">Nos últimos 30 dias</p>
               </CardContent>
               <CardFooter>
-                <Link href="/producao/ordens?status=concluida" className="w-full">
+                <Link to="/producao/ordens?status=concluida" className="w-full">
                   <Button variant="outline" className="w-full">
                     Ver ordens
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -160,7 +156,7 @@ export default function ProducaoPage() {
                   registrar não conformidades e implementar ações corretivas.
                 </p>
                 <div className="mt-4 flex justify-center">
-                  <Link href="/producao/qualidade">
+                  <Link to="/producao/qualidade">
                     <Button>
                       Acessar Controle de Qualidade
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -184,7 +180,7 @@ export default function ProducaoPage() {
                   definindo etapas, recursos necessários e tempos de execução.
                 </p>
                 <div className="mt-4 flex justify-center">
-                  <Link href="/producao/processos">
+                  <Link to="/producao/processos">
                     <Button>
                       Acessar Processos de Produção
                       <ArrowRight className="ml-2 h-4 w-4" />

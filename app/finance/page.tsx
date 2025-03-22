@@ -18,7 +18,7 @@ import {
 } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { DateRangePicker } from "@/components/ui/date-range-picker"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
 // Sample transaction data
 const transactions = [
@@ -117,13 +117,13 @@ export default function FinancePage() {
         <h1 className="text-3xl font-bold tracking-tight">Finance</h1>
         <div className="flex gap-2">
           <Button variant="outline" asChild>
-            <Link href="/finance/reports">
+            <Link to="/finance/reports">
               <FileText className="mr-2 h-4 w-4" />
               Reports
             </Link>
           </Button>
           <Button asChild>
-            <Link href="/finance/new-transaction">
+            <Link to="/finance/new-transaction">
               <Plus className="mr-2 h-4 w-4" />
               New Transaction
             </Link>

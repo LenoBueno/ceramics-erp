@@ -3,7 +3,7 @@ import { DashboardHeader } from "@/components/dashboard-header"
 import { ProductDetail } from "@/components/product-detail"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 
 interface ProductDetailPageProps {
   params: {
@@ -15,7 +15,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   return (
     <DashboardShell>
       <DashboardHeader heading="Detalhes do Produto" text="Visualize e edite informações detalhadas do produto.">
-        <Link href="/produtos">
+        <Link to="/produtos">
           <Button variant="outline">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Voltar para Produtos

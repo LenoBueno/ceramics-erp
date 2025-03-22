@@ -12,14 +12,16 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { ArrowLeft, Search } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { useRouter, useSearchParams } from "next/navigation"
 import { toast } from "@/components/ui/use-toast"
 
 export default function InventoryAdjustmentPage() {
   const searchParams = useSearchParams()
   const productId = searchParams()
-  const router = useRouter()
+  const navigate = useNavigate()
+  const params = useParams()
+  const location = useLocation()
 
   const [product, setProduct] = useState(
     productId
@@ -66,7 +68,7 @@ export default function InventoryAdjustmentPage() {
 
     // Redirecionar para a lista de produtos em estoque
     setTimeout(() => {
-      router.push("/estoque")
+      navigate("/estoque")
     }, 1500)
   }
 
@@ -181,7 +183,7 @@ export default function InventoryAdjustmentPage() {
               </CardContent>
               <CardFooter className="flex justify-between">
                 <Button type="button" variant="outline" asChild>
-                  <Link href="/estoque">Cancelar</Link>
+                  <Link to="/estoque">Cancelar</Link>
                 </Button>
                 <Button type="submit" disabled={!product}>
                   Confirmar Ajuste

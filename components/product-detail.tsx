@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { useNavigate, useParams, useLocation } from "react-router-dom"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
@@ -108,7 +108,9 @@ interface ProductDetailProps {
 }
 
 export function ProductDetail({ id }: ProductDetailProps) {
-  const router = useRouter()
+  const navigate = useNavigate()
+  const params = useParams()
+  const location = useLocation()
   const product = getProductData(id)
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
 
@@ -122,7 +124,7 @@ export function ProductDetail({ id }: ProductDetailProps) {
 
     // Redirecionar para a lista de produtos
     setTimeout(() => {
-      router.push("/produtos")
+      navigate("/produtos")
     }, 1500)
   }
 
@@ -218,7 +220,7 @@ export function ProductDetail({ id }: ProductDetailProps) {
                 </div>
               </CardContent>
               <CardFooter className="flex justify-between">
-                <Button variant="outline" className="w-full" onClick={() => router.push(`/produtos/${id}/editar`)}>
+                <Button variant="outline" className="w-full" onClick={() => navigate(`/produtos/${id}/editar`)}>
                   <Edit className="mr-2 h-4 w-4" />
                   Editar Produto
                 </Button>
@@ -484,7 +486,7 @@ export function ProductDetail({ id }: ProductDetailProps) {
       </Tabs>
 
       <div className="mt-6 flex justify-between">
-        <Button variant="outline" onClick={() => router.push(`/produtos/${id}/editar`)}>
+        <Button variant="outline" onClick={() => navigate(`/produtos/${id}/editar`)}>
           <Edit className="mr-2 h-4 w-4" />
           Editar Produto
         </Button>

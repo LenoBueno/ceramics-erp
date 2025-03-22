@@ -1,4 +1,4 @@
-import Link from "next/link"
+import { Link } from "react-router-dom"
 import { notFound } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -92,7 +92,7 @@ export default function TransactionDetailPage({ params }: { params: { id: string
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <Button variant="outline" size="icon" asChild>
-            <Link href="/finance">
+            <Link to="/finance">
               <ChevronLeft className="h-4 w-4" />
             </Link>
           </Button>
@@ -246,14 +246,14 @@ export default function TransactionDetailPage({ params }: { params: { id: string
             <CardContent>
               <div className="space-y-3">
                 <Button variant="outline" className="w-full justify-start" asChild>
-                  <Link href="#">
+                  <Link to="#">
                     <FileText className="mr-2 h-4 w-4" />
                     Invoice #{transaction.reference}
                   </Link>
                 </Button>
 
                 <Button variant="outline" className="w-full justify-start" asChild>
-                  <Link href="#">
+                  <Link to="#">
                     <FileCheck className="mr-2 h-4 w-4" />
                     Receipt #{transaction.id}
                   </Link>
